@@ -113,7 +113,11 @@ require_once("util/lti_util.php");
   }
 
   $parms['launch_presentation_return_url'] = $siteConfig['domain'] .  'cw-econ/components/lti/return_url.php?pageid=' . $page_id;
-
+  // skip the tao thank you screen
+  $parms['custom_skip_thankyou'] = 'true';
+  // never resume a delivery in progress, but start a new one every time 
+  $parms['custom_force_restart'] = 'true';
+  
   $custom = explode("\n", $custom);
   foreach ($custom as $line) {
       $line = trim($line);
