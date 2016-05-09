@@ -132,5 +132,5 @@ require_once("util/lti_util.php");
   $parms = signParameters($parms, $endpoint, "POST", $key, $secret, $tool_consumer_instance_guid, $tool_consumer_instance_description);
   
   $content = postLaunchHTML($parms, $endpoint, " ", true,
-     "width=\"800px\" height=\"100%\" scrolling=\"no\" frameborder=\"0\" transparency");
+     "width=\"100%\" height=\"100%\" scrolling=\"no\" frameborder=\"0\" transparency");
   print($content);
