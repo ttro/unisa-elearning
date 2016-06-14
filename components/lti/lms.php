@@ -5,8 +5,8 @@ header('Content-Type: text/html; charset=utf-8');
 //include '../../config.php';
 session_start();
 
-$ltiConfig = require '../../config/lti.conf.php';
-$siteConfig = require '../../config/site.conf.php';
+$ltiConfig = require dirname(__FILE__).'/../../config/lti.conf.php';
+$siteConfig = require dirname(__FILE__).'/../../config/site.conf.php';
 
 ?>
 <html>
@@ -17,7 +17,7 @@ $siteConfig = require '../../config/site.conf.php';
 </head>
 <body style="font-family:sans-serif;">
 <?php
-require_once("util/lti_util.php");
+require_once(dirname(__FILE__).'/util/lti_util.php');
 
   $cur_url = curPageURL();
   $key = trim($_REQUEST["key"]);
