@@ -1,9 +1,9 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 ini_set("display_errors", 1);
-header('Content-Type: text/html; charset=utf-8');
+// header('Content-Type: text/html; charset=utf-8');
 //include '../../config.php';
-session_start();
+// session_start();
 
 $ltiConfig = require dirname(__FILE__).'/../../config/lti.conf.php';
 $siteConfig = require dirname(__FILE__).'/../../config/site.conf.php';
@@ -30,7 +30,7 @@ require_once(dirname(__FILE__).'/util/lti_util.php');
   if ( ! $endpoint ) $endpoint = $siteConfig['domain'] . $_GET['delivery_url'];
   $cssurl = str_replace("lms.php","lms.css",$cur_url);
   $returl = str_replace("lms.php","lms_return.php",$cur_url);
-  
+
   $lmsdata = array(
     "resource_link_id" => "120988f929-274612",
     "resource_link_title" => "Weekly Blog",
@@ -74,7 +74,7 @@ require_once(dirname(__FILE__).'/util/lti_util.php');
       $outcomes = str_replace("lms.php","common/tool_consumer_outcome.php",$cur_url);
 	  $page_id = $_GET['page_id'];
 	  //$outcomes = $siteConfig['domain'].'FBN1502/score_return.php?page_url=' . $page_id;
-	  
+
 	  //Send out page Id to unlock the next page
 	   $form_url = WB_URL . '/page_referrer.php?page_url=' . $page_id;
 	   //$form_url = $siteConfig['domain'].'FBN1502/page_referrer.php?page_url=' . $page_id;
@@ -130,7 +130,7 @@ require_once(dirname(__FILE__).'/util/lti_util.php');
   }
 
   $parms = signParameters($parms, $endpoint, "POST", $key, $secret, $tool_consumer_instance_guid, $tool_consumer_instance_description);
-  
+
   $content = postLaunchHTML($parms, $endpoint, " ", true,
      "width=\"800px\" height=\"100%\" scrolling=\"no\" frameborder=\"0\" transparency");
   print($content);
